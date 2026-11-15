@@ -1,0 +1,47 @@
+import java.util.Scanner;
+class Payment {
+    void processPayment(double amount) {
+        System.out.println("Processing payment of " + amount);
+    }
+}
+
+class UPI extends Payment {
+    void processPayment(double amount) {
+        System.out.println("Paid " + amount + " using UPI");
+    }
+}
+
+class CreditCard extends Payment {
+    void processPayment(double amount) {
+        System.out.println("Paid " + amount + " using Credit Card");
+    }
+}
+
+class NetBanking extends Payment {
+    void processPayment(double amount) {
+        System.out.println("Paid " + amount + " using Net Banking");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter amount: ");
+        double amount = in.nextDouble();
+        System.out.print("Enter 1 for UPI, 2 for Credit Card, 3 for Net Banking: ");
+        int choice = in.nextInt();
+        Payment p;
+        if (choice == 1) {
+            p = new UPI();
+        } else if (choice == 2) {
+            p = new CreditCard();
+        } else if (choice == 3) {
+            p = new NetBanking();
+        } else {
+            System.out.println("Invalid choice");
+            in.close();
+            return;
+        }
+        p.processPayment(amount);
+      }
+}
