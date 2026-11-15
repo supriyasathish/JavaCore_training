@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class ReverseAdd {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = in.nextInt();
+        int temp = n;
+        int rev = 0;
+        while (temp > 0) {
+            rev = rev * 10 + temp % 10;
+            temp = temp / 10;
+        }
+        System.out.println("Reversed number: " + rev);
+        System.out.println("Sum: " + (n + rev));
+        }
+}
