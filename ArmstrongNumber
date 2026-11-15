@@ -1,0 +1,23 @@
+public class SpecialNumbers {
+    public static void main(String[] args) {
+        System.out.println("Special numbers from 1 to 500:");
+        for (int num = 1; num <= 500; num++) {
+            int temp = num;
+            int count = 0;
+            while (temp > 0) {
+                count++;
+                temp = temp / 10;
+            }
+            temp = num;
+            int sum = 0;
+            while (temp > 0) {
+                int digit = temp % 10;
+                sum = sum + (int) Math.pow(digit, count);
+                temp = temp / 10;
+            }
+            if (sum == num) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
