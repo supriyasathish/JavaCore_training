@@ -1,0 +1,37 @@
+import java.util.Scanner;
+abstract class Vehicle {
+    abstract double calculateRent(int days);
+}
+
+class Car extends Vehicle {
+    double calculateRent(int days) {
+        return days * 1500;
+    }
+}
+
+class Bike extends Vehicle {
+    double calculateRent(int days) {
+        return days * 500;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter 1 for Car, 2 for Bike: ");
+        int choice = in.nextInt();
+        System.out.print("Enter number of days: ");
+        int days = in.nextInt();
+        Vehicle v;
+        if (choice == 1) {
+            v = new Car();
+        } else if (choice == 2) {
+            v = new Bike();
+        } else {
+            System.out.println("Invalid choice");
+            in.close();
+            return;
+        }
+        System.out.println("Rent: " + v.calculateRent(days));
+    }
+}
