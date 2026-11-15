@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class KaprekarNumber {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = in.nextInt();
+        long square = (long) n * n;
+        int digits = 0;
+        int temp = n;
+        while (temp > 0) {
+            digits++;
+            temp = temp / 10;
+        }
+        long divisor = 1;
+        for (int i = 1; i <= digits; i++) {
+            divisor = divisor * 10;
+        }
+        long right = square % divisor;
+        long left = square / divisor;
+        if (n > 0 && right != 0 && left + right == n) {
+            System.out.println(n + " is a Kaprekar Number");
+        } else {
+            System.out.println(n + " is NOT a Kaprekar Number");
+        }
+      }
+}
