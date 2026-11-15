@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class DivisibleCheck {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = in.nextInt();
+        }
+        System.out.print("Enter the number to check divisibility: ");
+        int num = in.nextInt();
+        boolean allDivisible = true;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] % num != 0) {
+                allDivisible = false;
+                break;
+            }
+        }
+        if (allDivisible) {
+            System.out.println("All elements are divisible by " + num);
+        } else {
+            System.out.println("Not all elements are divisible by " + num);
+        }
+    }
+}
