@@ -1,0 +1,42 @@
+import java.util.Scanner;
+class A {
+    void showA() {
+        System.out.println("This is class A");
+    }
+}
+class B extends A {
+    void showB() {
+        System.out.println("This is class B");
+    }
+}
+class C extends B {
+    void showC() {
+        System.out.println("This is class C");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        C obj=new C();
+        System.out.print("Enter your choice: ");
+        int choice = in.nextInt();
+        switch(choice){
+        case 1:
+        {
+          obj.showA();
+          break;
+        }
+        case 2:{
+          obj.showB();
+          break;
+        }
+        case 3:{
+          obj.showC();
+          break;
+        }
+        default:{
+         System.out.println("Invalid");
+       }
+      }
+}
