@@ -1,0 +1,54 @@
+import java.util.Scanner;
+class Employee {
+    String name;
+    Employee(String name) {
+        this.name = name;
+    }
+    double calculateSalary() {
+        return 0;
+    }
+}
+
+class PermanentEmployee extends Employee {
+    double basic;
+    PermanentEmployee(String name, double basic) {
+        super(name);
+        this.basic = basic;
+    }
+    double calculateSalary() {
+        return basic;
+    }
+}
+
+class ContractEmployee extends Employee {
+    double hours;
+    double ratePerHour;
+    ContractEmployee(String name, double hours, double ratePerHour) {
+        super(name);
+        this.hours = hours;
+        this.ratePerHour = ratePerHour;
+    }
+    double calculateSalary() {
+        return hours * ratePerHour;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter permanent employee name: ");
+        String name1 = in.next();
+        System.out.print("Enter fixed salary: ");
+        double basic = in.nextDouble();
+        Employee e1 = new PermanentEmployee(name1, basic);
+        System.out.print("Enter contract employee name: ");
+        String name2 = in.next();
+        System.out.print("Enter working hours: ");
+        double hours = in.nextDouble();
+        System.out.print("Enter rate per hour: ");
+        double rate = in.nextDouble();
+        Employee e2 = new ContractEmployee(name2, hours, rate);
+        System.out.println(e1.name + " salary: " + e1.calculateSalary());
+        System.out.println(e2.name + " salary: " + e2.calculateSalary());
+    }
+}
