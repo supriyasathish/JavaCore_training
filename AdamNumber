@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class AdamNumber {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the identification number: ");
+        int n = in.nextInt();
+        int square = n * n;
+        int rev = 0;
+        int temp = n;
+        while (temp > 0) {
+            rev = rev * 10 + temp % 10;
+            temp = temp / 10;
+        }
+        int revSquare = rev * rev;
+        int revOfSquare = 0;
+        temp = square;
+        while (temp > 0) {
+            revOfSquare = revOfSquare * 10 + temp % 10;
+            temp = temp / 10;
+        }
+        if (revOfSquare == revSquare) {
+            System.out.println("Correct: Adam number");
+        } else {
+            System.out.println("Not an Adam number");
+        }
+        }
+}
