@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int[] arr = new int[n];
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            arr[i] = input.nextInt();
+            sum = sum + arr[i];
+        }
+        if (sum % n != 0) {
+            System.out.println(-1);
+        }
+        else {
+             int avg = sum / n;
+            int balance = 0;
+            int moves = 0;
+            for (int i = 0; i < n; i++) {
+               int diff = arr[i] - avg;
+                 balance = balance + diff;
+                if (diff > moves) {
+                    moves = diff;
+                }
+              int temp = balance;
+                 if (temp < 0) {
+                    temp = -temp;
+                }
+                if (temp > moves) {
+                    moves = temp;
+                }
+            }
+       System.out.println(moves);
+        }
+     }
+}
