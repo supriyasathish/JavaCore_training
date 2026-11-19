@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = input.nextInt();
+        }
+         int maxCount = 0;
+        int mostFrequent = arr[0];
+        nfor (int i = 0; i < n; i++) {
+            bint count = 0;
+          for (int j = 0; j < n; j++) {
+               if (arr[i] == arr[j]) {
+                    count++;
+                }
+            }
+        if (count > maxCount) {
+                maxCount = count;
+                mostFrequent = arr[i];
+            }
+        }
+        System.out.println(mostFrequent);
+        System.out.println(maxCount);
+    }
+}
