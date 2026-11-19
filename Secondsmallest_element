@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = input.nextInt();
+        }
+        int min = arr[0];
+        int secmin = arr[0];
+        boolean found = false;
+        for (int i = 1; i < n; i++) {
+            if (arr[i] < min) {
+                secmin = min;
+                min = arr[i];
+                found = true;
+            }
+            else if (arr[i] > min) {
+                if (!found || arr[i] < secmin) {
+                    secmin = arr[i];
+                    found = true;
+                }
+            }
+        }
+       System.out.println(secmin);
+    }
+}
